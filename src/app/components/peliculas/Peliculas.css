@@ -1,0 +1,66 @@
+.movies {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  width: 100%;
+  gap: 32px;
+}
+
+.movie {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+.movie:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.title-div {
+  margin-bottom: 10px;
+  height: 43px; /* Set a fixed height */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit title to 2 lines */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.movie img {
+  border-radius: 8px;
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  background-color: #ccc;
+  margin-top: auto; /* Ensures the image is aligned consistently */
+}
+.movie p {
+  margin: 5px 0;
+  color: #555;
+}
+.movieAnchor {
+  margin-top: 15px;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s ease;
+  width: 200px;
+}
+.movieAnchor:hover {
+  background-color: #0056b3;
+}
