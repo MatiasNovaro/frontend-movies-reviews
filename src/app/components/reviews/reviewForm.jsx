@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import "./reviewForm.css";
 import { postReview } from "@/app/actions/reviewPostAction";
-import { useRouter } from "next/navigation";
+import { useRouter, redirect } from "next/navigation";
 export default function ReviewForm({ movie_id }) {
   const [reviewText, setReviewText] = useState("");
   const [error, setError] = useState("");
@@ -27,9 +27,10 @@ export default function ReviewForm({ movie_id }) {
             setError("You must be logged in to post a review.");
             return;
           }
-          ref.current?.reset();
           await postReview(movie_id, formData, token);
-          router.push(`/peliculas/${movie_id}`);
+          setReviewText("");
+          ref.current?.reset();
+          redirect(`/peliculas/${movie_id}`);
         }}
       >
         <textarea

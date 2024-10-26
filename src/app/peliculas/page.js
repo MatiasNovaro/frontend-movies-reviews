@@ -1,6 +1,6 @@
 import Search from "../components/Search.jsx";
 import { Suspense } from "react";
-import PeliculasWrapper from "../components/peliculas/PeliculasWrapper";
+import PeliculasWrapper from "../components/peliculas/PeliculasWrapper.jsx";
 export default function PeliculasPage({ searchParams }) {
   const currentPage = Number(searchParams?.page) || 0;
   const query = searchParams?.query || "";

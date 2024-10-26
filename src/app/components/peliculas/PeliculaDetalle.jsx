@@ -7,7 +7,7 @@ import {
 import { ReviewList } from "../reviews/listaReviews.jsx";
 import ReviewForm from "../reviews/reviewForm.jsx";
 import "./peliculaDetalle.css";
-import Pagination from "@/app/components/Paginacion";
+import Pagination from "@/app/components/Paginacion.jsx";
 import { useState, useEffect, Suspense } from "react";
 
 const PeliculaDetalle = (props) => {
