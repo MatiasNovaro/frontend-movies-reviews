@@ -4,6 +4,14 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+
+/**
+ * Register component allows users to create a new account.
+ * It collects user name, email, and password, sends it to the backend,
+ * and manages the registration state (success or error).
+ *
+ * @returns {JSX.Element} The rendered register form component.
+ */
 export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -12,6 +20,14 @@ export default function Register() {
   const [success, setSuccess] = useState(null);
   const router = useRouter();
 
+
+  /**
+   * Handles user registration by sending data to the API.
+   * On success, stores the JWT token and redirects to the peliculas page.
+   * On error, displays an error message.
+   *
+   * @param {Event} e - Form submission event.
+   */
   const handleRegister = async (e) => {
     e.preventDefault();
     setError(null);
@@ -37,12 +53,14 @@ export default function Register() {
 
       const token = data.token;
 
+       // Store token for authenticated actions
       localStorage.setItem("token", token);
 
       setSuccess("Registration successful!");
       console.log("Registration successful:", data);
 
-      router.push("/peliculas");
+      // Redirect to the peliculas page after successful registration
+      router.push("/");
 
     } catch (error) {
       setError(error.message || "An error occurred during registration");
@@ -61,6 +79,7 @@ export default function Register() {
         color: "black",
       }}
     >
+      {/* Heading for the registration form */}
       <h2
         style={{
           fontSize: "2rem",
@@ -76,6 +95,7 @@ export default function Register() {
         onSubmit={handleRegister}
         style={{ display: "flex", flexDirection: "column" }}
       >
+        {/* Name input field */}
         <div style={{ marginBottom: "15px" }}>
           <label
             style={{
@@ -102,6 +122,7 @@ export default function Register() {
             }}
           />
         </div>
+        {/* Email input field */}
         <div style={{ marginBottom: "15px" }}>
           <label
             style={{
@@ -128,6 +149,7 @@ export default function Register() {
             }}
           />
         </div>
+        {/* Password input field */}
         <div style={{ marginBottom: "15px" }}>
           <label
             style={{
@@ -154,6 +176,7 @@ export default function Register() {
             }}
           />
         </div>
+        {/* Submit button */}
         <button
           type="submit"
           style={{
@@ -172,7 +195,8 @@ export default function Register() {
           Register
         </button>
       </form>
-  
+
+      {/* Error message */}
       {error && (
         <p
           style={{
@@ -184,6 +208,7 @@ export default function Register() {
           {error}
         </p>
       )}
+       {/* Success message */}
       {success && (
         <p
           style={{
@@ -195,7 +220,7 @@ export default function Register() {
           {success}
         </p>
       )}
-  
+      {/* Redirect to login page */}  
       <p style={{ marginTop: "20px", textAlign: "center" }}>
         Already have an account?{" "}
         <Link href="/login" style={{ color: "#007BFF", textDecoration: "none" }}>

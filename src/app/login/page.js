@@ -4,6 +4,12 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+
+/**
+ * Login component for user authentication.
+ * Sends credentials to the backend, handles authentication, and stores JWT token.
+ * @component
+ */
 export default function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -11,6 +17,14 @@ export default function Login() {
   const [success, setSuccess] = useState(null);
   const router = useRouter(); // Para redirigir después del login exitoso
 
+
+  /**
+   * Handles form submission for login.
+   * Validates input, sends login request to backend, and handles success or error.
+   * @async
+   * @function handleLogin
+   * @param {Object} e - The form submission event
+   */
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(null);  // Reiniciar mensaje de error
@@ -34,17 +48,16 @@ export default function Login() {
 
       const data = await response.json();
 
-      // Aquí esperamos que el backend devuelva el JWT token en la respuesta
       const token = data.token;
 
-      // Guardar el token en localStorage o cookies seguras
+      // Store token in local storage for future requests
       localStorage.setItem("token", token);
 
       setSuccess("Login successful!");
       console.log("Login successful:", data);
 
-      // Redirigir al usuario a una página protegida
-      router.push("/peliculas");
+      // Redirect to protected page on successful login
+      router.push("/");
 
     } catch (error) {
       setError(error.message || "An error occurred during login");
@@ -63,6 +76,7 @@ export default function Login() {
         color: "black",
       }}
     >
+      {/* Title */}
       <h2
         style={{
           fontSize: "2rem",
@@ -74,10 +88,12 @@ export default function Login() {
       >
         Login
       </h2>
+      {/* Form for user login */}
       <form
         onSubmit={handleLogin}
         style={{ display: "flex", flexDirection: "column" }}
       >
+        {/* Username input */}
         <div style={{ marginBottom: "15px" }}>
           <label
             style={{
@@ -104,6 +120,7 @@ export default function Login() {
             }}
           />
         </div>
+        {/* Password input */}
         <div style={{ marginBottom: "15px" }}>
           <label
             style={{
@@ -130,6 +147,7 @@ export default function Login() {
             }}
           />
         </div>
+        {/* Submit button */}
         <button
           type="submit"
           style={{
@@ -148,7 +166,7 @@ export default function Login() {
           Login
         </button>
       </form>
-  
+      {/* Display error or success message if present */}
       {error && (
         <p
           style={{
@@ -171,7 +189,7 @@ export default function Login() {
           {success}
         </p>
       )}
-  
+      {/* Link to register page */}
       <p style={{ marginTop: "20px", textAlign: "center" }}>
         Don't have an account?{" "}
         <Link href="/register" style={{ color: "#007BFF", textDecoration: "none" }}>

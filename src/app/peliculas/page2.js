@@ -1,9 +1,17 @@
 import Search from "../components/Search.jsx";
 import { Suspense } from "react";
 import PeliculasWrapper from "../components/peliculas/PeliculasWrapper.jsx";
+
+/**
+ * PeliculasPage component that displays a list of movies and a search input.
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.searchParams - The search parameters from the URL.
+ * @returns {JSX.Element} The rendered PeliculasPage component.
+ */
 export default function PeliculasPage({ searchParams }) {
-  const currentPage = Number(searchParams?.page) || 0;
-  const query = searchParams?.query || "";
+  const currentPage = Number(searchParams?.page) || 0; 
+  const query = searchParams?.query || ""; // Default to empty string if not provided
   return (
     <div className="w-full">
       <div className="flex w-full items-center justify-center">
@@ -14,19 +22,12 @@ export default function PeliculasPage({ searchParams }) {
       </div>
       <div>
       <Suspense key={query + currentPage} fallback={<p>Buscando peliculas</p>}>
-        {/* <ListaPeliculas
-          query={query}
-          currentPage={currentPage}
-          ></ListaPeliculas> */}
         <PeliculasWrapper
           query={query}
           currentPage={currentPage}
           ></PeliculasWrapper>
       </Suspense>
       </div>
-      {/* <div className="mt-5 flex w-full justify-center">
-        <Pagination totalPages={10}></Pagination>
-        </div> */}
     </div>
   );
 }

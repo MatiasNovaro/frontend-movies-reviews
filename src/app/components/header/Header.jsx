@@ -1,15 +1,11 @@
-// Header.jsx (Client Component)
-"use client";  // Mark this as a Client Component to enable interactivity
+"use client"; 
 
-import Link from "next/link";  // Importing Link for navigation
+import Link from "next/link"; 
 
 export default function Header() {
-  // Example logout handler
   const handleLogout = () => {
-    // 1. Clear tokens or user data (if stored in localStorage, cookies, or sessionStorage)
-    localStorage.removeItem("token"); // If you're storing tokens in localStorage
+    localStorage.removeItem("token");
 
-    // 3. Redirect user to login or home page after logging out
     window.location.href = "/login"; // Redirect to login page after logout
   };
 

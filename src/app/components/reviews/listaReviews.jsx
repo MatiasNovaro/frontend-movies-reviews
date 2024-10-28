@@ -1,7 +1,15 @@
 import "./reviews.css";
 import { Review } from "./review";
+
+/**
+ * Component to display a list of reviews for a specific movie.
+ *
+ * @param {Object} props - Component properties.
+ * @param {Array} props.reviews - Array of review objects to display.
+ * @returns {JSX.Element} The rendered list of reviews.
+ */
 export async function ReviewList(props) {
-  const reviews = props.reviews;
+  const reviews = props.reviews; // Extract reviews from props
   return (
     <div className="portlet light reviews">
       <div className="portlet-title">
