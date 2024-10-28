@@ -44,7 +44,7 @@ const PeliculaDetalle = (props) => {
           PAGE_SIZE
         );
         setReviews(fetchedReviews);
-
+        
         // Fetch the total number of reviews for pagination
         const fetchedTotalReviews = await fetchTotalReviewsByMovieId(props.id);
         setTotalReviews(fetchedTotalReviews);
@@ -106,7 +106,7 @@ const PeliculaDetalle = (props) => {
           <h2>Rating</h2>
           <p className="imdb-rating">IMDB: {pelicula.imdb.rating}</p>
           <p className="rotten-rating">
-            Rotten Tomatoes: {pelicula.tomatoes.viewer.rating}
+            Rotten Tomatoes: {pelicula?.tomatoes?.viewer?.rating || 0}
           </p>
         </div>
       </div>

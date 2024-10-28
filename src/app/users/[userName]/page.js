@@ -1,5 +1,4 @@
-import { UserPage } from "@/app/components/users/UserPage.jsx";
-import Header from "../../components/header/Header.jsx";
+import { UserPage } from "../../components/users/UserPage.jsx";
 
 /**
  * UserPage component that renders the user's profile and associated reviews.
@@ -14,7 +13,6 @@ export default function userPage({ params, searchParams }) {
   const currentPage = Number(searchParams?.page) || 0;
   return (
     <>
-    <Header />
     <div key={userName}>
       <UserPage userName={userName} currentPage={currentPage} />
     </div>

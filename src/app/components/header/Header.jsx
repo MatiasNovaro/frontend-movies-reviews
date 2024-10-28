@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header style={{ padding: "20px", display: "flex", gap: "20px" }}>
       {/* Home Button */}
-      <Link href="/peliculas">
+      <Link href="/">
         <button className="buttonStyle">Home</button>
       </Link>
       {/* Logout Button */}
