@@ -1,4 +1,4 @@
-import { UserPage } from "@/app/components/users/userPage";
+import { UserPage } from "@/app/components/users/UserPage.jsx";
 import Header from "../../components/header/Header.jsx";
 
 /**

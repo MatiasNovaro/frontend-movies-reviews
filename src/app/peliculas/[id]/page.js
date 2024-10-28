@@ -1,4 +1,4 @@
-import PeliculaDetalle from "@/app/components/peliculas/PeliculaDetalle";
+import PeliculaDetalle from "../../components/peliculas/PeliculaDetalle";
 export default function peliculaDetalle({ params, searchParams }) {
   const { id } = params;
   const currentPage = Number(searchParams?.page) || 0;
