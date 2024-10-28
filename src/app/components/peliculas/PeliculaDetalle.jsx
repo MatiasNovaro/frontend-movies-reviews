@@ -9,7 +9,6 @@ import ReviewForm from "../reviews/reviewForm.jsx";
 import "./peliculaDetalle.css";
 import Pagination from "@/app/components/Paginacion.jsx";
 import { useState, useEffect, Suspense } from "react";
-import Image from "next/image.js";
 
 /**
  * Component that displays detailed information about a movie, along with reviews and pagination.
@@ -71,7 +70,7 @@ const PeliculaDetalle = (props) => {
     <div className="pelicula-detalle" key={pelicula._id}>
       <div>
         <h1>{pelicula.title}</h1>
-        <Image src={pelicula.poster || defaultPoster} alt={pelicula.title} />
+        <img src={pelicula.poster || defaultPoster} alt={pelicula.title} />
         <h2>Genres:</h2>
         <div className="genres">
           {pelicula.genres.map((genre) => (

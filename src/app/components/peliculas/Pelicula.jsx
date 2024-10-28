@@ -1,6 +1,5 @@
 import Link from "next/link";
 import "./Peliculas.css";
-import Image from "next/image";
 
 /**
  * Component that displays a single movie item with title, year, poster, and a link to details.
@@ -25,7 +24,7 @@ export async function Pelicula(props) {
       {/* Movie release year */}
       <p>{props.year}</p>
       {/* Movie poster image with fallback to default */}
-      <Image src={props.poster || defaultPoster} alt={props.title} width={200} height={230}/>
+      <img src={props.poster || defaultPoster} alt={props.title} width={200} height={230}/>
        {/* Link to the movie's detail page */}
       <Link href={`/peliculas/${props._id}`} className="movieAnchor">Details</Link>
     </li>
