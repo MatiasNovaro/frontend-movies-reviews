@@ -70,7 +70,7 @@ export default function Login() {
         maxWidth: "400px",
         margin: "0 auto",
         padding: "20px",
-        fontFamily: "'Poppins', sans-serif",
+        fontFamily: "sans-serif",
         fontSize: "16px",
         lineHeight: "1.5",
         color: "black",
@@ -191,7 +191,7 @@ export default function Login() {
       )}
       {/* Link to register page */}
       <p style={{ marginTop: "20px", textAlign: "center" }}>
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <Link href="/register" style={{ color: "#007BFF", textDecoration: "none" }}>
           Register
         </Link>
