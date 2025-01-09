@@ -1,4 +1,3 @@
-"use client";
 import { ReviewList } from "../reviews/listaReviews";
 import { fetchReviewsByUser, fetchTotalReviewsByUser } from "@/app/data/data_reviews";
 import Pagination from "@/app/components/Paginacion";
